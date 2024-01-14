@@ -1084,6 +1084,16 @@ static int h264_decode_frame(AVCodecContext *avctx, AVFrame *pict,
 
     av_assert0(pict->buf[0] || !*got_frame);
 
+#if 0
+    if (pict->pict_type == AV_PICTURE_TYPE_I) {
+        av_log(avctx, AV_LOG_ERROR, "is I frame!\n");
+    } else if (pict->pict_type == AV_PICTURE_TYPE_P) {
+        av_log(avctx, AV_LOG_ERROR, "is P frame!\n");
+    } else if (pict->pict_type == AV_PICTURE_TYPE_B) {
+        av_log(avctx, AV_LOG_ERROR, "is B frame!\n");
+    }
+#endif
+
     ff_h264_unref_picture(&h->last_pic_for_ec);
 
     return get_consumed_bytes(buf_index, buf_size);

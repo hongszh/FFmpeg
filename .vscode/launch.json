@@ -1,0 +1,40 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "(gdb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      // "program": "${workspaceFolder}/build/ffmpeg_g",
+      "program": "${workspaceFolder}/build/decode/decode3",
+      "args": [
+        // "${workspaceFolder}/decode/256x144.mp4", "${workspaceFolder}/decode/256x144-yuv420p.yuv"
+        "~/video/b-frame.mp4", "${workspaceFolder}/decode/bframe-1920x1080-yuv420p.yuv"
+      // "-y", "-i", "~/2ch-16k.wav", "-af","volume=10dB", "-ar", "32000", "~/out.wav"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/",
+      "environment": [
+        { "name": "LD_LIBRARY_PATH",
+          "value": "$LD_LIBRARY_PATH:${workspaceFolder}/build/libavcodec:${workspaceFolder}/build/libavdevice:${workspaceFolder}/build/libavfilter:${workspaceFolder}/build/libavformat:${workspaceFolder}/build/libavutil"}
+      ],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
