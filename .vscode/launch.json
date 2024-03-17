@@ -9,10 +9,12 @@
       "type": "cppdbg",
       "request": "launch",
       // "program": "${workspaceFolder}/build/ffmpeg_g",
-      "program": "${workspaceFolder}/build/decode/decode3",
+      // "program": "${workspaceFolder}/build/decode/decode3",
+      "program": "${workspaceFolder}/build/openh264-dec/openh264dec",
       "args": [
         // "${workspaceFolder}/decode/256x144.mp4", "${workspaceFolder}/decode/256x144-yuv420p.yuv"
-        "~/video/b-frame.mp4", "${workspaceFolder}/decode/bframe-1920x1080-yuv420p.yuv"
+        "${workspaceFolder}/openh264-dec/256x144.h264", "${workspaceFolder}/openh264-dec/256x144-yuv420p.yuv"
+        // "~/video/b-frame.mp4", "${workspaceFolder}/decode/bframe-1920x1080-yuv420p.yuv"
       // "-y", "-i", "~/2ch-16k.wav", "-af","volume=10dB", "-ar", "32000", "~/out.wav"
       ],
       "stopAtEntry": false,

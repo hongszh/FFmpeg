@@ -74,6 +74,9 @@ decode/decode2$(EXESUF): decode/decode2.o $(FF_DEP_LIBS)
 decode/decode3$(EXESUF): decode/decode3.o $(FF_DEP_LIBS)
 	$(LD) $(LDFLAGS) $(LDEXEFLAGS) $(LD_O) $^ $(ELIBS) $(FF_EXTRALIBS) $(LIBFUZZER_PATH)
 
+openh264-dec/openh264dec$(EXESUF): openh264-dec/openh264dec.o $(FF_DEP_LIBS)
+	$(LD) $(LDFLAGS) $(LDEXEFLAGS) $(LD_O) $^ $(ELIBS) $(FF_EXTRALIBS) $(LIBFUZZER_PATH)
+
 tools/enum_options$(EXESUF): ELIBS = $(FF_EXTRALIBS)
 tools/enum_options$(EXESUF): $(FF_DEP_LIBS)
 tools/enc_recon_frame_test$(EXESUF): $(FF_DEP_LIBS)
@@ -108,6 +111,7 @@ SUBDIR_VARS := CLEANFILES FFLIBS HOSTPROGS TESTPROGS TOOLS               \
                OBJS SLIBOBJS SHLIBOBJS STLIBOBJS HOSTOBJS TESTOBJS
 
 SUBDIR_VARS += DECODE
+SUBDIR_VARS += openh264-dec
 
 define RESET
 $(1) :=
